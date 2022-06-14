@@ -1,7 +1,7 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <HTML>
 <HEAD>
-    <TITLE>Ejercicio</TITLE>
+    <TITLE>Ejercicio Informática</TITLE>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -10,6 +10,29 @@
 
 
 </HEAD>
+<style>
+    .button-container{
+        display:flex;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 100vh
+    }
+    .w3-button{
+        background-color:  white;
+        padding: 1em 2em;
+        transition: .6s;
+    }
+    .zoom-in{
+        transform: scale(.5);
+    }
+    .zoom-out:hover{
+        transform: scale(.5) 
+    }
+    .zoom-in:hover{
+        transform: scale(1) ;
+    }
+
+</style>
 <BODY>
     <!-- !PAGE CONTENT! -->
     <div class="w3-content" style="max-width:1500px">
@@ -17,12 +40,13 @@
 
         <!-- Header -->
         <header class="w3-panel w3-center w3-opacity" style="padding:128px 16px">
-            <h1>PhD candidate</h1>
+            <h1>Select a PhD candidate to see his/her CV</h1>
 
 
-            <div class="w3-padding-32">
-                <div class="w3-bar w3-border">
-                    <a href="Airin.html" class="w3-bar-item w3-button">Airin</a>
+            <div class="w3-padding-64">
+                <div class="w3-bar">
+                    <a href="Airin.html" class="w3-bar-item w3-button zoom-in">
+                        <img src="https://media-exp2.licdn.com/dms/image/C4E03AQHwAecJNrZq8w/profile-displayphoto-shrink_800_800/0/1651610244097?e=1660780800&v=beta&t=IsaDPbavryr2oBqdBxnkyyHpgj6Jw8Bln88spJEqIMQ" alt="Airin" style="width:100px;height:100px;"> <br>Airin</a>
                     <a href="Kike.html" class="w3-bar-item w3-button">Kike</a>
                 </div>
             </div>
