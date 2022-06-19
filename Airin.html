@@ -13,6 +13,7 @@
             font-family: "Roboto", sans-serif
             
         }
+         /*Added animation to containers and photo */ 
         /* Change colors from css classes imported from w3schools */
         .w3-teal{
         background-color:#003888!important
@@ -24,7 +25,55 @@
         .myicon{
             content:url(imgs/user-graduate-solid.svg);
         }
+        /* style for implemented 'showvideo' button */
+        #overlay {
+                position: fixed;
+                display: none;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0,0,0,0.5);
+                z-index: 2;
+                cursor: pointer;
+            }
+
+        #iframe{
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        font-size: 50px;
+        color: white;
+        transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        }
     </style>
+    <!-- JavaScript implemented code:  -->
+        <!-- creates an iframe element with the embedded video anf its settings 
+            and two functions for on/off the overlay with the add/remove video command -->
+    <script>
+        const video = document.createElement('iframe')
+        video.src="https://unav.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=2142d4e2-6b5b-4968-887d-aeb701541e5b&autoplay=true&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all"
+        video.width="750px"
+        video.height="405px"
+        video.style="border: 1px solid #464646"
+        video.allow="autoplay"
+        video.classList.add('.w3-right')
+
+        function on() {
+            document.getElementById("overlay").style.display = "block"; 
+            overlay = document.getElementById("overlay")    
+            overlay.appendChild(video)
+        }
+        function off() {
+            document.getElementById("overlay").style.display = "none";
+            overlay = document.getElementById("overlay")
+            overlay.removeChild(video)
+        }
+    </script>
+
 </head>
 <body class="w3-light-grey">
 
@@ -33,22 +82,27 @@
 
         <!-- The Grid -->
         <div class="w3-row-padding">
-
+            
             <!-- Left Column -->
             <div class="w3-third">
-
+                
                 <div class="w3-white w3-text-grey w3-card-4">
-                    <div class="w3-display-container">
+                    
+                    <!-- <div class="w3-container"> -->
+                   
+                    <div class="w3-display-container w3-animate-top"> 
                         <img src="https://media-exp2.licdn.com/dms/image/C4E03AQHwAecJNrZq8w/profile-displayphoto-shrink_800_800/0/1651610244097?e=1660780800&v=beta&t=IsaDPbavryr2oBqdBxnkyyHpgj6Jw8Bln88spJEqIMQ" style="width:100%" alt="Avatar">
-                        <div class="w3-display-bottomleft w3-container w3-text-black">
-                            <h2>IRENE MARIN</h2>
-                        </div>
+                        <!-- <div class="w3-display-bottommiddle w3-container w3-text-white"> -->
+                        
+                        <!-- </div> -->
                     </div>
-                    <div class="w3-container">
+                    <!-- </div> -->
+                    <div class="w3-container w3-animate-bottom">
+                        <h2 class="w3-text-black">IRENE MARIN</h2>
                         <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>PhD student</p>
                         <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Pamplona, Spain</p>
                         <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>imarin.4@alumni.unav.es</p>
-                        <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>1224435534</p>
+                        <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>+34 948 194700 ext. 815046</p>
                         <hr>
 
                         <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
@@ -94,11 +148,50 @@
                         <br>
                     </div>
                 </div><br>
-                <div class="w3-container w3-card-4 w3-white w3-text-grey">
-                    <p class="w3-large w3-text-theme w3-margin"> <b>VIDEOS</b><br>
-                        <iframe   src="https://www.youtube.com/embed/QKPI0PCpiRs" frameborder="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen >
-                        </iframe>
+               
+                <!-- <div class="w3-container w3-card-4 w3-white w3-text-grey" id="videobox"> -->
+                <div class="w3-container w3-card-4 w3-white w3-text-grey w3-animate-bottom">
+                    
+                    <p class="w3-large w3-text-theme w3-margin"  > <b>VIDEOS</b><br>
                         <p>Video about my Master's thesis (origin of my current topic of my PhD project)</p>
+                        
+                        <!-- Use the javascript code -->
+                        <button id="mybutton" type ="button" onclick="on()">Show video</button>
+                        <div id="overlay" onclick="off()">
+                            <!-- <iframe id="video" allow="autoplay"style="border: 1px solid #464646" height="405px" width="750px" src="https://unav.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=2142d4e2-6b5b-4968-887d-aeb701541e5b&autoplay=true&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all"></iframe> -->
+                        </div>
+
+
+            <!-- old button its shows the video in the container -->
+                        <!-- <script>
+                            const video = document.createElement('iframe')
+                            video.src="https://unav.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=2142d4e2-6b5b-4968-887d-aeb701541e5b&autoplay=true&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all"
+                            video.width="750px"
+                            video.height="405px"
+                            video.style="border: 1px solid #464646"
+                            video.style="display:none"
+                            video.allow="autoplay"
+                            mybox.appendChild(video)
+                            var myvideotext = document.getElementById("videotext")
+                            var mybutton = document.getElementById("mybutton")
+                            
+                            
+                            mybutton.onclick = function (){                            
+                                if (video.style.display=="none"){ 
+                                    video.style.display="initial"                        
+                                    mybutton.firstChild.data  = "Hide video"
+                                    mybox.appendChild(video)
+                                    video.classList.add('.w3-top')
+                                }
+                                else{
+                                    video.style.display="none"                                   
+                                    mybutton.firstChild.data  = "Show video"
+                                    mybox.removeChild(video)
+                                    // video.classList.remove('.w3-top')}
+
+                                }
+                            
+                        </script> -->
 
                     </p>
                 </div>
@@ -108,7 +201,7 @@
             <!-- Right Column -->
             <div class="w3-twothird">
 
-                <div class="w3-container w3-card w3-white w3-margin-bottom">
+                <div class="w3-container w3-card w3-white w3-margin-bottom w3-animate-right">
                     <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
                     <div class="w3-container">
                         <h5 class="w3-opacity"><b>PhD student</b></h5>
@@ -126,7 +219,7 @@
                     </div>
                     
                 </div>
-                <div class="w3-container w3-card w3-white w3-margin-bottom">
+                <div class="w3-container w3-card w3-white w3-margin-bottom w3-animate-right">
                     <h2 class="w3-text-grey w3-padding-16"><i class="fa myicon fa-fw w3-margin-right w3-xxlarge w3-text-teal" style="width:5%"></i>Education</h2>
                     <div class="w3-container">
                         <!--Institution-->
@@ -167,14 +260,14 @@
                     </div>
                 
 
-                <div class="w3-container w3-card w3-white">
+                <div class="w3-container w3-card w3-white w3-animate-right">
                     <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal" ></i>Fellowships and Awards</h2>
                     <div class="w3-container">
                         <!--Institution-->
-                        <h5 class="w3-opacity"><b>Fundación 'laCaixa'</b></h5>
+                        <h5 class="w3-opacity"><b></i>Fundación 'laCaixa'</b></h5>
                         <!--Degrees-->
                         <div class="w3-container">
-                            <h5>Fellowship for postgraduate stuides abroad</b></h5>
+                            <h5><i class="fa fa-eur fa-fw w3-margin-right w3-text-teal"></i>Fellowship for postgraduate stuides abroad</b></h5>
                             <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>May 2023 - May 2024</h6>
                             <p>Research stay at Mayo Clinic (Rochester, MN, US)</p>
                             <hr>
@@ -183,7 +276,7 @@
                         <h5 class="w3-opacity"><b>Gobierno de Navarra</b></h5>
                         <!--Degrees-->
                         <div class="w3-container">
-                            <h5>Fellowship for doctoral studies</b></h5>
+                            <h5><i class="fa fa-eur fa-fw w3-margin-right w3-text-teal"></i>Fellowship for doctoral studies</b></h5>
                             <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Feb 2022 - Sep 2024</h6>
                             <p>PhD in Applied Engineering at Computational Biology program (CIMA Universidad de Navarra)</p>
                             <hr>
@@ -216,7 +309,7 @@
         <p>Find me on social media.</p>
         <a href="https://www.instagram.com/irene_maring/"  target="_blank" class="fa fa-instagram w3-hover-opacity"></a>
         <a href="http://www.linkedin.com/in/irenemaringoni"  target="_blank" class="fa fa-linkedin w3-hover-opacity"></a>
-        <p>Take me <a href="index.html">Home</a></p>
+        <p>Take me <a href="index.html" >Home</a></p>
     </footer>
 
 </body>
